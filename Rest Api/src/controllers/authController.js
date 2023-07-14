@@ -4,6 +4,35 @@ const bcrypt = require('bcrypt');
 const jwt = require('../lib/jwt');
 
 const { SECRET, TOKEN_KEY } = require('../config/untilConfig');
+
+exports.login = async (req, res, next) => {
+    const { username, password } = req.body;
+    //find user by username
+    const user = await User.findOne({ username });
+    //check password
+    const isValid = await bcrypt.compare(password, user.password);
+    try {
+
+        if (!user || !isValid) {
+            throw new Error
+        }
+        
+        const token = await generationToken(user);
+        res.cookie(TOKEN_KEY, token);
+
+        user.token = token;
+        res.status(200).json({ message: "Successful login", user }).send(user)
+
+    } catch (err) {
+        if (!user || !isValid) {
+            res.status(401).send({ message: "Invalid username or password!" });
+            return;
+        }
+        next(err)
+    }
+
+};
+
 exports.register = async(req, res) => {
     try {
 
