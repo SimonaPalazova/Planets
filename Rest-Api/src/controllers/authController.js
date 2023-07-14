@@ -79,6 +79,20 @@ exports.getProfileInfo = async(req, res, next) => {
         }
 }
 
+exports.editProfileInfo = async(req, res, next) => {
+    const userid = req.params._id;
+    const { username, email } = req.body;
+    try{
+         const editedProfile = await User.findOneAndUpdate( userid, { username, email },  { runValidators: true, new: true })
+         res.status(200).json(editedProfile)
+    }catch(err){
+        console.log(err);
+        next()
+    }
+   
+        
+}
+
 async function generationToken(user) {
     const payload = {
         _id: user._id,
