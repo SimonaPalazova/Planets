@@ -55,6 +55,19 @@ exports.register = async(req, res) => {
     }
 
 }
+
+
+
+exports.logout = (req, res) => {
+    try {
+        res.clearCookie(TOKEN_KEY).json({ message: "Successful logout"});
+    } catch (err) {
+        res.send(err);
+    }
+
+
+}
+
 async function generationToken(user) {
     const payload = {
         _id: user._id,
