@@ -69,7 +69,7 @@ exports.logout = (req, res) => {
 }
 
 exports.getProfileInfo = async(req, res, next) => {
-    const userid = req.body.params._id;
+    const userid = req.params._id;
     try{
          const user = await User.findOne(userid, { password: 0, __v: 0 }) //finding by Id and returning without password and __v
          res.status(200).json(user) 
