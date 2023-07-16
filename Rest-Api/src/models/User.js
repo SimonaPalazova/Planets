@@ -34,6 +34,10 @@ const userSchema = new mongoose.Schema({
     planets:{
         type: mongoose.Types.ObjectId,
         ref: 'Planet'
+    },
+    moons:{
+        type: mongoose.Types.ObjectId,
+        ref: 'Planet'
     }
 });
 
