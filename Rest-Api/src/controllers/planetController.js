@@ -10,3 +10,21 @@ exports.getPlanets = async (req, res, next) => {
     }
 
 }
+
+exports.getPlanet = async (req, res, next) => {
+    const planetId = req.params.planetId;
+    try {
+        const planet = await Planet.findById(themeId)
+            .populate({
+                path: 'posts',
+                populate: {
+                    path: 'userId'
+                }
+            })
+        res.json(planet);
+    } catch (err) {
+        console.log(err);
+        next();
+    }
+
+}
