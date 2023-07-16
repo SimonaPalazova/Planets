@@ -19,7 +19,7 @@ const moonSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User',
     },
-    subscribe:{
+    like:{
         type: mongoose.Types.ObjectId,
         ref: 'User',
     }
