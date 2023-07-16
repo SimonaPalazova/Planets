@@ -41,3 +41,17 @@ exports.createPlanet = async (req, res, next) => {
     }
 
 }
+
+exports.subscribe = async (req, res, next) => {
+    const planetId = req.params.planetId;
+    const userId = req.user._id;
+    try {
+       const subscribe = await Planet.findByIdAndUpdate({ _id: planetId }, { $addToSet: { subscribers: userId } }, { new: true })
+        res.status(200).json(subscribe)
+            
+    } catch (err) {
+        console.log(err);
+        next();
+    }
+
+}
