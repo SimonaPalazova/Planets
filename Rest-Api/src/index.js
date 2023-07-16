@@ -7,7 +7,7 @@ const apiRouter = require('./routes/index');
 //const { errorHandler } = require('./untils/errHandler');
 
 require('./config/express')(app);
-app.use('/user', apiRouter);
+app.use(apiRouter);
 
 //app.use(errorHandler);
 
