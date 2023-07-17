@@ -29,3 +29,17 @@ exports.getMoon = async (req, res, next) => {
 
 }
 
+exports.createMoon = async (req, res, next) => {
+    const { name, image, overview } = req.body;
+    const userId = req.user._id;
+    
+    try {
+        const createdMoon = await Moon.create( name, image, overview, {subscribers: [userId]} )
+        res.status(201).json({ message: "Created!" })
+        res.json(createdMoon);
+    } catch (err) {
+        console.log(err);
+        next();
+    }
+
+}
