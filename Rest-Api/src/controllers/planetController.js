@@ -1,4 +1,6 @@
 const { Planet } = require('../models');
+const { Planet } = require('../models/Planet');
+const { User } = require('../models/User');
 
 exports.getPlanets = async (req, res, next) => {
     try {
@@ -61,6 +63,28 @@ exports.editPlanet = async(req, res, next) => {
         console.log(err);
         next();
     }
+}
+
+exports.deletePlanet= async(req, res, next) => {
+    const planetId = req.params.planetId
+    const userId = req.user._id;
+
+    try{
+        const deletedPlanet = await Planet.findOneAndDelete({ _id: planetId, userId })
+        const udate = await User.findOneAndUpdate({ _id: userId }, { $pull: { planets: planetId } })
+
+            if (deletedPlanet) {
+                res.status(200).json(deletedPlanet)
+                res.json(udate);
+            } else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        
+    }catch (err) {
+        console.log(err);
+        next();
+    }
+    
 }
 
 
