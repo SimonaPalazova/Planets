@@ -1,13 +1,19 @@
 const router = require('express').Router();
 
-const { register, login, logout, getProfileInfo, editProfileInfo } = require('../controllers/authController');
+const users = require('./users');
+const planets = require('./planets');
+const moons = require('./moons');
+const likes = require('./like');
+const test = require('./test');
+const create = require('./create')
 
-router.post('/users/register',register);
-router.post('/users/login',login);
-router.post('/users/logout', logout);
 
-router.get('/users/:id/profile', getProfileInfo);
-//router.get('/:id/profile/edit');
-router.post('/users/:id/profile/edit', editProfileInfo);
+router.use('/users', users);
+router.use('/create', create)
+router.use('/planets', planets);
+router.use('/moons', moons);
+router.use('/likes', likes);
+router.use('/test', test);
+
 
 module.exports = router;
