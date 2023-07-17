@@ -1,4 +1,3 @@
-const { Planet } = require('../models');
 const { Planet } = require('../models/Planet');
 const { User } = require('../models/User');
 
@@ -16,10 +15,8 @@ exports.getPlanets = async (req, res, next) => {
 exports.getPlanet = async (req, res, next) => {
     const planetId = req.params.planetId;
     try {
-        const planet = await Planet.findById(themeId)
         const planet = await Planet.findById(planetId)
             .populate({
-                path: 'posts',
                 path: 'planets',
                 populate: {
                     path: 'userId'
