@@ -43,3 +43,22 @@ exports.createMoon = async (req, res, next) => {
     }
 
 }
+exports.editMoon = async(req, res, next) => {
+    const moondId = req.params.moondId
+    const { name, image, overview } = req.body;
+    const userId = req.user._id;
+    // if the userId is not the same as this one of the Moon, the Moon will not be updated
+    try{
+        const editedMoon = await Moon.findOneAndUpdate({ _id: moondId, userId }, { name, image, MoonType, overview }, { new: true }) 
+        if (editedMoon) {
+                res.status(200).json(editedMoon);
+            }
+            else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+    }catch (err) {
+        console.log(err);
+        next();
+    }
+}
+
