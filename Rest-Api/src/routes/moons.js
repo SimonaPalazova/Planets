@@ -8,7 +8,7 @@ const { getMoons, getMoon, editMoon, deleteMoon } = require('../controllers/moon
 router.get('/', getMoons);
 router.get('/:moonId', getMoon);
 router.put('/:moonId/edit', auth, editMoon);
-//router.delete('/:moonId/delete', auth, deleteMoon);
+router.delete('/:moonId/delete', auth, deleteMoon);
 
 
 module.exports = router;
