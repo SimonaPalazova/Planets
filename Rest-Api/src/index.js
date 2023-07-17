@@ -2,7 +2,9 @@ global.__basedir = __dirname;
 require('dotenv').config();
 const app = require('express')();
 const dbConnection = require('./config/dbConfig')
-const apiRouter = require('./routes/index');
+
+const apiRouter = require('./routes/index')
+
 
 //const { errorHandler } = require('./untils/errHandler');
 
