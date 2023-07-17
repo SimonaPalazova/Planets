@@ -1,3 +1,4 @@
+const { User } = require('../models/User');
 const { Moon } = require('../models/Moon');
 
 exports.getMoons = async (req, res, next) => {
@@ -60,5 +61,27 @@ exports.editMoon = async(req, res, next) => {
         console.log(err);
         next();
     }
+}
+
+exports.deleteMoon= async(req, res, next) => {
+    const moondId = req.params.moondId
+    const userId = req.user._id;
+
+    try{
+        const deletedMoon = await Moon.findOneAndDelete({ _id: moondId, userId })
+        const udate = await User.findOneAndUpdate({ _id: userId }, { $pull: { Moons: moondId } })
+
+            if (deletedMoon) {
+                res.status(200).json(deletedMoon)
+                res.json(udate);
+            } else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        
+    }catch (err) {
+        console.log(err);
+        next();
+    }
+    
 }
 
