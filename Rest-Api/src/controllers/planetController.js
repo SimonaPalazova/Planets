@@ -1,9 +1,9 @@
-const { Planet } = require('../models/Planet');
-const { User } = require('../models/User');
+const Planet  = require('../models/Planet');
+const User  = require('../models/User');
 
 exports.getPlanets = async (req, res, next) => {
     try {
-        const planets = await Planet.find().populate('userId')
+        const planets = await Planet.find().populate('owner')
         res.json(planets)
     } catch (err) {
         console.log(err);
@@ -19,7 +19,7 @@ exports.getPlanet = async (req, res, next) => {
             .populate({
                 path: 'planets',
                 populate: {
-                    path: 'userId'
+                    path: 'owner'
                 }
             })
         res.json(planet);

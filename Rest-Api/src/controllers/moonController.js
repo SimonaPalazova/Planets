@@ -1,9 +1,9 @@
-const { User } = require('../models/User');
-const { Moon } = require('../models/Moon');
+const  User  = require('../models/User');
+const  Moon  = require('../models/Moon');
 
 exports.getMoons = async (req, res, next) => {
     try {
-        const moons = await Moon.find().populate('userId')
+        const moons = await Moon.find().populate('owner')
         res.json(moons)
     } catch (err) {
         console.log(err);
@@ -19,7 +19,7 @@ exports.getMoon = async (req, res, next) => {
             .populate({
                 path: 'moons',
                 populate: {
-                    path: 'userId'
+                    path: 'owner'
                 }
             })
         res.json(moon);
