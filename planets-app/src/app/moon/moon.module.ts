@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateMoonComponent } from './create-moon/create-moon.component';
 import { OneMoonComponent } from './one-moon/one-moon.component';
+import { MoonRoutingModule } from './moon-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { OneMoonComponent } from './one-moon/one-moon.component';
     OneMoonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MoonRoutingModule
   ]
 })
 export class MoonModule { }
