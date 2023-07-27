@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { MoonListComponent } from './moon-list/moon-list.component';
 import { PlanetListComponent } from './planet-list/planet-list.component';
 import { UserModule } from './user/user.module';
+import { PlanetModule } from './planet/planet.module';
+import { MoonModule } from './moon/moon.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     CoreModule,
     UserModule,
+    PlanetModule,
+    MoonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
