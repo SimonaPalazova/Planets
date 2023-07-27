@@ -3,8 +3,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?cs=srgb&dl=pexels-francesco-ungaro-998641.jpg&fm=jpg") center/cover no-repeat;
-    margin: 0;
-    height: 100vh;
+    height: 120vh;
+    margin: 0px;
   }
   
   .profile-data {
@@ -12,10 +12,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
   }
   
   .profile_img {
+    margin-top: 50px;
     position: relative;
     width: 150px;
     height: 150px;
