@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { CoreModule } from './core/core.module';
+import { MoonListComponent } from './moon-list/moon-list.component';
+import { PlanetListComponent } from './planet-list/planet-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    MoonListComponent,
+    PlanetListComponent
   ],
   imports: [
     BrowserModule,
