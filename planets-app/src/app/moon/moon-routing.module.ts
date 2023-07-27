@@ -9,11 +9,18 @@ import { CreateMoonComponent } from './create-moon/create-moon.component';
 const routes: Routes = [
   {
     path: 'moons',
-    component: MoonListComponent
-  },
-  {
-    path: 'moons/:moonid',
-    component: OneMoonComponent
+    children:[
+      {
+        path: '',
+        pathMatch:'full',
+        component: MoonListComponent
+      },
+      {
+        path: ':moonid',
+        component: OneMoonComponent 
+      }
+    ]
+   
   },
   {
     path: 'create/moon',

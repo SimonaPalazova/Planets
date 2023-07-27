@@ -8,12 +8,20 @@ import { CreatePlanetComponent } from './create-planet/create-planet.component';
 const routes: Routes = [
   {
     path: 'planets',
-    component: PlanetListComponent,
+    children:[
+      {
+        path: '',
+        pathMatch:'full',
+        component:PlanetListComponent
+      },
+      {
+        path: ':planetid',
+        component: OnePlanetComponent
+      }
+    ]
+  
   },
-  {
-    path: 'planets/:planetid',
-    component: OnePlanetComponent
-  },
+ 
   {
     path: 'create/planet',
     component: CreatePlanetComponent

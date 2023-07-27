@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { User } from "./user-id";
 
 export interface Moon {
     _id: string;
