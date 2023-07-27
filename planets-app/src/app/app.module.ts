@@ -9,6 +9,7 @@ import { MainComponent } from './main/main.component';
 import { CoreModule } from './core/core.module';
 import { MoonListComponent } from './moon-list/moon-list.component';
 import { PlanetListComponent } from './planet-list/planet-list.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PlanetListComponent } from './planet-list/planet-list.component';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
+    UserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
