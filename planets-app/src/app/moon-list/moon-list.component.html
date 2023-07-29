@@ -6,16 +6,16 @@
     <div class="dynamic-data">
 
    
-        <div class="moons">
-            <div class="moon">
+        <div class="moons" *ngIf="thereAreNoMoons">
+            <div class="moon" *ngFor="let moon of moonsList">
                 <div class="image">
                     <a routerLink="/moons/moonId">
-                        <img src="https://solarsystem.nasa.gov/system/stellar_items/image_files/1167_feature_1600x900_hpx.jpg" 
+                        <img src="{{moon.image}}" 
                     alt="img">
                     </a>
                     <div class="moons-name">
                         <a routerLink="/moons/:moonId">
-                            <h4>Lune</h4>
+                            <h4>{{moon.name}}</h4>
                         </a>
                     </div>
                 </div> 
@@ -23,7 +23,7 @@
             
         </div>
 
-        <article class="not-available-photo">
+        <article class="not-available-photo" *ngIf="!thereAreNoMoons">
             
                 <h3>No uploaded Moons yet!</h3>
                 <a routerLink="/create/moon">Create Moons</a>
