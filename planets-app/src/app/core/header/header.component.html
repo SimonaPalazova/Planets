@@ -12,12 +12,19 @@
                 <li><a routerLink="/moons">Moons</a></li>
                 <li><a routerLink="/create/planet">Create Planet</a></li>
                 <li><a routerLink="/create/moon">Create Moon</a></li>
-                <li><a routerLink="/users/:id/profile">Profile</a></li>
+                <li><a routerLink="/users/profile">Profile</a></li>
 
             </ul>
-
-            <a class="btn1" routerLink="/users/login"><button>Login</button></a>
-            <a class="btn2" routerLink="/users/register"><button>Register</button></a>  
+            <div class="logout-user" *ngIf="!isLoggedIn">
+                <a class="btn1" routerLink="/users/login"><button>Login</button></a>
+                <a class="btn2" routerLink="/users/register"><button>Register</button></a>
+            </div>
+            
+            <div class="login-user" *ngIf="isLoggedIn">
+                <a class="btn1" routerLink="/users/profile"><button>{{username}}`s profile</button></a>
+                <a class="btn2" (click)="logout()"><button>Logout</button></a>  
+            </div>
+            
       </header>
     </nav>
 </body>
