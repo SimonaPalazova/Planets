@@ -11,7 +11,7 @@ router.post('/login',login);
 router.post('/logout', logout);
 
 
-router.post('/:id/profile', auth, getProfileInfo, getMoonsByOwner, getPlanetsByOwner);
+router.get('/:id/profile', auth, getProfileInfo, getMoonsByOwner, getPlanetsByOwner);
 router.put('/:id/profile/edit', auth, editProfileInfo);
 
 module.exports = router;
