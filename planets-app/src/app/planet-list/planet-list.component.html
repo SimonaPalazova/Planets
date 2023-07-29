@@ -6,16 +6,16 @@
     <div class="dynamic-data">
 
    
-        <div class="planets">
-            <div class="palnet">
+        <div class="planets" *ngIf="thereAreNoPlanets">
+            <div class="palnet" *ngFor="let planet of planetsList">
                 <div class="image">
                     <a routerLink="/planets/:planetId">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnRDMXzG1ouG1xzCJwQ6z81BmitW9cqSPE5QI3PqRjZdWlZeMQij1KW2Dql34vnyEaa2Y&usqp=CAU" 
+                        <img src="{{planet.image}}" 
                     alt="img">
                     </a>
                     <div class="planets-name">
                         <a routerLink="/planets/:planetId">
-                            <h4>Jupiter</h4>
+                            <h4>{{planet.name}}</h4>
                         </a>
                     </div>
                 </div> 
@@ -23,7 +23,7 @@
             
         </div>
 
-        <article class="not-available-photo">
+        <article class="not-available-photo" *ngIf="!thereAreNoPlanets">
             
                 <h3>No uploaded Planet yet!</h3>
                 <a routerLink="/create/planet">Create Planet</a>
