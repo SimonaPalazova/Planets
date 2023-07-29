@@ -84,7 +84,19 @@ exports.deleteMoon= async(req, res, next) => {
     }
     
 }
+ 
+exports.getMoonsByOwner = async(req, res,next) => {
+    const userId = req.user._id;
+    
+    try{
+        const moons = await Moon.find({owner: userId})
+        res.json(moons)
 
+    }catch (err) {
+        console.log(err);
+        next();
+    }
+}
 
 exports.like = async(req, res, next) => {
     const moondId = req.params.moondId
