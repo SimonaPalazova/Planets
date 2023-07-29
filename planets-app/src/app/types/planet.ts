@@ -1,12 +1,12 @@
-import { User } from "./user-id";
+import { UserId } from "./user-id";
 
-export interface Planet {
+export interface PlanetId {
     _id: string;
     name: string;
     image: string;
     planetType: string;
     overview: string;
-    owner: User;
+    owner: UserId;
     subscribe: string[];
     __v: number;
 }

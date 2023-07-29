@@ -1,11 +1,11 @@
-import { User } from "./user-id";
+import { UserId } from "./user-id";
 
-export interface Moon {
+export interface MoonId {
     _id: string;
     name: string;
     image: string;
     overview: string;
-    owner: User;
+    owner: UserId;
     like: string[];
     __v: number;
 }
