@@ -1,17 +1,50 @@
 <body>
     <div class="container">
         
-    <form class="form" method="post">
+    <form class="form" #form="ngForm" (ngSubmit)="login(form)">
         <div class="form-title"><span>Login to your</span></div>
          <div class="title-2"><span>SPACE</span></div>
          <div class="input-container">
-           <input class="input-mail" type="email" placeholder="Enter email" #inputEmail>
+           <input 
+           class="input-mail" 
+           type="email" 
+           placeholder="Enter email"
+           ngModel
+           #inputEmail="ngModel"
+           required>
            <span> </span>
          </div>
+
+         <ng-container *ngIf="inputEmail.touched">
+          <p class="error" *ngIf="inputEmail.errors?.['required']">
+            Email is required!
+          </p>
+          <p class="error">
+            Email is not valid!
+          </p>
+
+        </ng-container>
          <div class="input-container">
-           <input class="input-pwd" type="password" placeholder="Enter password" #inputPassword>
+           <input 
+           class="input-pwd" 
+           type="password" 
+           placeholder="Enter password"
+           ngModel 
+           #inputPassword="ngModel"
+           required>
          </div>
-         <button type="submit" class="submit" (click)="login(inputEmail.value, inputPassword.value)">
+
+         <ng-container>
+          <p class="error">
+            Password is required!
+          </p>
+          <p class="error">
+            Password must be at least 6 characters!
+          </p>
+        </ng-container>
+
+
+         <button type="submit" class="submit">
            <span class="sign-text">Login</span>
          </button>
    

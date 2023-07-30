@@ -12,6 +12,7 @@ import { PlanetListComponent } from './planet-list/planet-list.component';
 import { UserModule } from './user/user.module';
 import { PlanetModule } from './planet/planet.module';
 import { MoonModule } from './moon/moon.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MoonModule } from './moon/moon.module';
     CoreModule,
     UserModule,
     PlanetModule,
-    MoonModule
+    MoonModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

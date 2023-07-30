@@ -6,6 +6,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { PlanetsByOwnerComponent } from './planets-by-owner/planets-by-owner.component';
 import { MoonsByOwnerComponent } from './moons-by-owner/moons-by-owner.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,7 +21,10 @@ import { MoonsByOwnerComponent } from './moons-by-owner/moons-by-owner.component
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }
