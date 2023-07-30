@@ -1,0 +1,32 @@
+
+.moons {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  border-radius: 20%;
+  flex-wrap: wrap;
+  align-content: space-around;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 1s ease;
+}
+
+
+.moons img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.moons:hover  {
+  border: 2px solid #fff;
+  -webkit-box-shadow: rgb(76, 0, 255) 0px 0px 50px -15px;
+  box-shadow: rgb(238, 238, 243) 0px 0px 50px -15px;
+  overflow: hidden;
+  z-index: +1;
+  transform: scale(1.1);
+  transition: transform 1s ease;
+}
