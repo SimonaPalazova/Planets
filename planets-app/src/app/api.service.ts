@@ -27,6 +27,11 @@ export class ApiService {
     return this.http.get<PlanetId>(`${appUrl}/planets/${id}`)
   }
 
+  getPlanetByOwner(id: string){
+    const { appUrl } = environment;
+    return this.http.get<PlanetId[]>(`${appUrl}/planets/${id}/planets`)
+  }
+
   getMoons(){
     const { appUrl } = environment;
     return this.http.get<MoonId[]>(`${appUrl}/moons`)
@@ -34,5 +39,9 @@ export class ApiService {
   getOneMoon(id: string){
     const { appUrl } = environment;
     return this.http.get<MoonId>(`${appUrl}/moons/${id}`)
+  }
+  getMoonsByOwner(id: string){
+    const { appUrl } = environment;
+    return this.http.get<MoonId[]>(`${appUrl}/moons/${id}/moons`)
   }
 }
