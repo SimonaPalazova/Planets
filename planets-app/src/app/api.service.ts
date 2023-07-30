@@ -11,12 +11,7 @@ import { UserId } from './types/user-id';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-
-  login(email:string, password:string){
-    const { apiUrl } = environment;
-    return this.http.post('users/login', {email, password});
-  }
-
+  
   getUrser(id: string){
     const { apiUrl } = environment;
     return this.http.get<UserId>(`${apiUrl}/users/${id}/profile`);

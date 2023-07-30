@@ -9,6 +9,6 @@ router.post('/logout', auth ,logout);
 
 
 router.get('/:id/profile', auth, getProfileInfo);
-router.put('/:id/profile/edit', auth, editProfileInfo);
+router.post('/:id/profile/edit', auth, editProfileInfo);
 
 module.exports = router;

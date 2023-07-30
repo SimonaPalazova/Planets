@@ -43,14 +43,13 @@ exports.register = async(req, res) => {
             return res.status(409).send("User Already Exist. Please Login")
         }
         console.log('hi');
+        
         const createdUser = await User.create({ username, email, password, repeatPassword });
-
         const token = await generationToken(createdUser);
         res.cookie(TOKEN_KEY, token);
 
         createdUser.token = token;
         res.status(201).json({ message: "Successfully Registered", status: 201 })
-        res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
         res.send(createdUser);
     } catch (err) {
         console.log(err);

@@ -40,9 +40,9 @@ export class RegisterComponent {
     }
     const { username, email, passGroup:{password, rePassword} = {} } = this.form.value
     console.log(this.form.value);
-
     this.userService.register(username!, email!, password!, rePassword!).subscribe(()=>{
       this.router.navigate(['/users/profile'])
+      console.log(this.form.value);
     })
     
   }
