@@ -1,19 +1,54 @@
 <body>
     <div class="container">
         
-    <form class="form" method="post">
+    <form class="form" [formGroup]="form" (ngSubmit)="editProfile()">
         <div class="form-title"><span>Edit your</span></div>
          <div class="title-2"><span>PROFILE</span></div>
          <div class="input-container">
-            <input class="input-username" type="username" placeholder="Enter your new username" value="simona">
-            <span> </span>
-          </div>
-         <div class="input-container">
-           <input class="input-mail" type="email" placeholder="Enter your new email" value="simona@abv">
-           <span> </span>
-         </div>
+          <input 
+          class="input-username" 
+          type="username" 
+          placeholder="Enter username"
+          name="username"
+          
+          formControlName="username"
+          value="John">
+        </div>
+
+        <ng-container *ngIf="form.get('username')?.touched">
+          <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+            Username is required!
+          </p>
+          <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+            Username's length should not be less than 5!
+          </p>
+        </ng-container>
+
+       <div class="input-container">
+         <input 
+         class="input-mail" 
+         type="email" 
+         placeholder="Enter email"
+         name="email"
+         value="simonapalazova@qmail.com"
+         formControlName="email"
+         >
+         <span> </span>
+       </div>
+
+       <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Email is required!
+        </p>
+        <p
+          class="error"
+          *ngIf="form.get('email')?.errors?.['appEmailValidator']"
+        >
+          Email is not valid!
+        </p>
+      </ng-container>
         
-         <button type="submit" class="submit">
+         <button [disabled]="form.invalid" type="submit" class="submit">
            <span class="sign-text">Edit</span>
          </button> 
       </form>

@@ -99,4 +99,10 @@ body {
     transition: all 0.1s ease 0s;
     color: aliceblue;
   }
+  p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: rgb(72, 35, 236);
+    padding-top: 0;
+  }
   

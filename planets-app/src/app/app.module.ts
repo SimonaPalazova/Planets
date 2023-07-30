@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { PlanetModule } from './planet/planet.module';
 import { MoonModule } from './moon/moon.module';
 import { SharedModule } from './shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
@@ -32,7 +33,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     UserModule,
     PlanetModule,
     MoonModule,
-    SharedModule
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
