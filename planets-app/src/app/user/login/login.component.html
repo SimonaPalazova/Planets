@@ -11,7 +11,8 @@
            placeholder="Enter email"
            ngModel
            #inputEmail="ngModel"
-           required>
+           required
+           [appEmail]="appEmailDomains">
            <span> </span>
          </div>
 
@@ -19,7 +20,7 @@
           <p class="error" *ngIf="inputEmail.errors?.['required']">
             Email is required!
           </p>
-          <p class="error">
+          <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">
             Email is not valid!
           </p>
 
