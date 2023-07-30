@@ -12,6 +12,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  login(email:string, password:string){
+    const { appUrl } = environment;
+    return this.http.post('users/login', {email, password});
+  }
+
   getUrser(id: string){
     const { appUrl } = environment;
     return this.http.get<UserId>(`${appUrl}/users/${id}/profile`);
