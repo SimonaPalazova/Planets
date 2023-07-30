@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../types/user';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class UserService {
   get isLogged():boolean{
     return !!this.user
   }
-  constructor() {
+  constructor(private http: HttpClient) {
     try {
       const lsUser = localStorage.getItem(this.USER_KEY) || '';
       this.user = JSON.parse(lsUser);
@@ -22,15 +23,17 @@ export class UserService {
     }
   }
      
-  login() :void{
-    this.user = {
-      username: 'Moni',
-      email: 'moni@abv.bg',
-      password: '12345'
-    };
+  login(email: string, password: string) {
+    return this.http.post('/api/users/login', {email, password})
+  }
 
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-
+  register(
+    username:string, 
+    email: string, 
+    password: string, 
+    rePassword: string
+    ){
+    return this.http.post('/api/users/register', {username, email, password, rePassword})
   }
 
   logout() :void{

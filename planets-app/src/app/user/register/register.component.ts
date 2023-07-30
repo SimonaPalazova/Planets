@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DEFAULT_EMAIL_DOMAINS } from "src/app/shared/constants";
 import { appEmailValidator } from "src/app/shared/validators/email-validator";
 import { matchPasswordsValidator } from "src/app/shared/validators/match-password-validator";
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -27,14 +28,23 @@ export class RegisterComponent {
       }
     ),
   });
-  constructor(private fb: FormBuilder,  private router: Router) {}
+  constructor(
+    private fb: FormBuilder,  
+    private router: Router, 
+    private userService: UserService
+    ){}
 
   register(): void {
     if (this.form.invalid) {
       return;
     }
+    const { username, email, passGroup:{password, rePassword} = {} } = this.form.value
     console.log(this.form.value);
-    this.router.navigate(['/users/profile'])
+
+    this.userService.register(username!, email!, password!, rePassword!).subscribe(()=>{
+      this.router.navigate(['/users/profile'])
+    })
+    
   }
 }
 

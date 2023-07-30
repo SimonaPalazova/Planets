@@ -49,7 +49,9 @@ exports.register = async(req, res) => {
         res.cookie(TOKEN_KEY, token);
 
         createdUser.token = token;
-        res.status(201).json({ message: "Successfully Registered", status: 201 }).send(createdUser);
+        res.status(201).json({ message: "Successfully Registered", status: 201 })
+        res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+        res.send(createdUser);
     } catch (err) {
         console.log(err);
     }

@@ -1,6 +1,8 @@
 global.__basedir = __dirname;
 require('dotenv').config();
+
 const app = require('express')();
+const cors = require("cors");
 const dbConnection = require('./config/dbConfig')
 
 const apiRouter = require('./routes/index')
@@ -9,8 +11,9 @@ const apiRouter = require('./routes/index')
 //const { errorHandler } = require('./untils/errHandler');
 
 require('./config/express')(app);
-app.use('/api', apiRouter);
 
+app.use('/api', apiRouter);
+app.use(cors())
 //app.use(errorHandler);
 
 dbConnection()
