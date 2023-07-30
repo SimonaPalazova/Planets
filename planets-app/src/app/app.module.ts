@@ -14,7 +14,7 @@ import { PlanetModule } from './planet/planet.module';
 import { MoonModule } from './moon/moon.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
