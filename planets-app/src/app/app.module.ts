@@ -15,6 +15,7 @@ import { MoonModule } from './moon/moon.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { EditProfileComponent } from './user/edit-profile/edit-profile.component
     SharedModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

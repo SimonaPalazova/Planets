@@ -13,40 +13,40 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   login(email:string, password:string){
-    const { appUrl } = environment;
+    const { apiUrl } = environment;
     return this.http.post('users/login', {email, password});
   }
 
   getUrser(id: string){
-    const { appUrl } = environment;
-    return this.http.get<UserId>(`${appUrl}/users/${id}/profile`);
+    const { apiUrl } = environment;
+    return this.http.get<UserId>(`${apiUrl}/users/${id}/profile`);
   }
 
   getPlanets(){
-    const { appUrl } = environment;
-    return this.http.get<PlanetId[]>(`${appUrl}/planets`)
+    const { apiUrl } = environment;
+    return this.http.get<PlanetId[]>(`${apiUrl}/planets`)
   }
 
   getOnePlanet(id: string){
-    const { appUrl } = environment;
-    return this.http.get<PlanetId>(`${appUrl}/planets/${id}`)
+    const { apiUrl } = environment;
+    return this.http.get<PlanetId>(`${apiUrl}/planets/${id}`)
   }
 
   getPlanetByOwner(id: string){
-    const { appUrl } = environment;
-    return this.http.get<PlanetId[]>(`${appUrl}/planets/${id}/planets`)
+    const { apiUrl } = environment;
+    return this.http.get<PlanetId[]>(`${apiUrl}/planets/${id}/planets`)
   }
 
   getMoons(){
-    const { appUrl } = environment;
-    return this.http.get<MoonId[]>(`${appUrl}/moons`)
+    const { apiUrl } = environment;
+    return this.http.get<MoonId[]>(`${apiUrl}/moons`)
   }
   getOneMoon(id: string){
-    const { appUrl } = environment;
-    return this.http.get<MoonId>(`${appUrl}/moons/${id}`)
+    const { apiUrl } = environment;
+    return this.http.get<MoonId>(`${apiUrl}/moons/${id}`)
   }
   getMoonsByOwner(id: string){
-    const { appUrl } = environment;
-    return this.http.get<MoonId[]>(`${appUrl}/moons/${id}/moons`)
+    const { apiUrl } = environment;
+    return this.http.get<MoonId[]>(`${apiUrl}/moons/${id}/moons`)
   }
 }
