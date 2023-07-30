@@ -4,6 +4,8 @@ import { CreatePlanetComponent } from './create-planet/create-planet.component';
 import { OnePlanetComponent } from './one-planet/one-planet.component';
 import { PlanetRoutingModule } from './planet-routing.module';
 import { EditPlanetComponent } from './edit-planet/edit-planet.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +17,10 @@ import { EditPlanetComponent } from './edit-planet/edit-planet.component';
   ],
   imports: [
     CommonModule,
-    PlanetRoutingModule
+    PlanetRoutingModule,
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PlanetModule { }
