@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
+import { appImageValidator } from 'src/app/shared/validators/image-validator';
 
 @Component({
   selector: 'app-create-moon',
@@ -6,5 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-moon.component.css']
 })
 export class CreateMoonComponent {
+form = this.fb.group({
+    name:["", [Validators.required]],
+    image:[
+      "",
+      [Validators.required, appImageValidator()],
+    ],
+    
+    overview:[
+      "", 
+      [
+        Validators.required, 
+        Validators.minLength(10), 
+        Validators.maxLength(50)
+      ],
+  ]
+  })
+  constructor(private fb: FormBuilder,  private router: Router) {}
+
+  createMoon():void{
+    if(this.form.invalid){
+      return;
+    }
+    console.log(this.form.value);
+    this.router.navigate(['/moons'])
+    
+  }
 
 }
+
+
