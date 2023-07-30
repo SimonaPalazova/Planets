@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { PlanetModule } from './planet/planet.module';
 import { MoonModule } from './moon/moon.module';
 import { SharedModule } from './shared/shared.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     MainComponent,
     MoonListComponent,
-    PlanetListComponent
+    PlanetListComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
