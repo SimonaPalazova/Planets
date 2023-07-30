@@ -33,21 +33,22 @@
            placeholder="Enter password"
            name="password"
            #inputPassword="ngModel"
-           required>
            ngModel 
+           required
+           minlength="8">
          </div>
 
-         <ng-container>
-          <p class="error">
+         <ng-container *ngIf="inputPassword.touched">
+          <p class="error" *ngIf="inputPassword.errors?.['required']">
             Password is required!
           </p>
-          <p class="error">
-            Password must be at least 6 characters!
+          <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+            Password must be at least  {{inputPassword.errors?.['minlength']['requiredLength']}} characters!
           </p>
         </ng-container>
 
 
-         <button type="submit" class="submit">
+         <button [disabled]="form.invalid" type="submit" class="submit">
            <span class="sign-text">Login</span>
          </button>
    
