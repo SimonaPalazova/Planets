@@ -1,6 +1,6 @@
 import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { AbstractControl,  NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn} from "@angular/forms"
-import { emailValidator } from './email-validator';
+import { appEmailValidator } from './email-validator';
 
 @Directive({
   selector: '[appEmail]',
@@ -27,7 +27,7 @@ export class EmailDirective implements Validator, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     const currentEmailChanges = changes["appEmail"];
     if (currentEmailChanges) {
-      this.validator = emailValidator(currentEmailChanges.currentValue);
+      this.validator = appEmailValidator(currentEmailChanges.currentValue);
     }
   }
 
