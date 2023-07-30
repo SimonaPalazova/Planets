@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
+import { PlanetsByOwnerComponent } from './planets-by-owner/planets-by-owner.component';
+import { MoonsByOwnerComponent } from './moons-by-owner/moons-by-owner.component';
 
 
 
@@ -11,7 +13,9 @@ import { UserRoutingModule } from './user-routing.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PlanetsByOwnerComponent,
+    MoonsByOwnerComponent
   ],
   imports: [
     CommonModule,
