@@ -102,3 +102,9 @@ body {
     text-decoration: none;
     margin-left: 5px;
   }
+  p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: rgb(72, 35, 236);
+    padding-top: 0;
+  }

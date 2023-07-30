@@ -1,20 +1,89 @@
 <body>
     <div class="container">
         
-    <form class="form" method="post">
+    <form class="form" [formGroup]="form" (ngSubmit)="editMoon()">
         <div class="form-title"><span>Edit your</span></div>
          <div class="title-2"><span>MOON</span></div>
          <div class="input-container">
-            <input class="input-name" type="text" placeholder="Enter Moon name" value="Lune">
-          </div>
-         <div class="input-container">
-           <input class="input-img" type="text" placeholder="Enter image url" value="imagrUrl">
-           <span> </span>
-         </div>
-         <div class="input-container">
-            <textarea class="input-overview" type="text" placeholder="Enter Moon overview">Overview...</textarea>
-         </div>
-         <button type="submit" class="submit">
+          <input 
+          class="input-name" 
+          type="text"
+          name="name"
+          value="Lune"
+          placeholder="Enter Moon name"
+          formControlName="name">
+        </div>
+        <ng-container *ngIf="form.get('name')?.touched">
+          <p class="error" *ngIf="form.get('name')?.errors?.['required']">
+          Name is required!
+          </p>
+        </ng-container>
+
+       <div class="input-container">
+         <input 
+         class="input-img" 
+         type="text"
+         name="image" 
+         value="https://w1.pngwing.com/pngs/981/42/png-transparent-solar-system-earth-planet-nine-planets-planets-beyond-neptune-uranus-ice-planet-jupiter.png"
+         placeholder="Enter image url"
+         formControlName="image"
+         >
+         <span> </span>
+       </div>
+
+       <ng-container *ngIf="form.get('image')?.touched">
+        <p class="error" *ngIf="form.get('image')?.errors?.['required']">
+          Image is required!
+        </p>
+        <p
+          class="error"
+          *ngIf="form.get('image')?.errors?.['appImageValidator']"
+        >
+          Image is not valid!
+        </p>
+      </ng-container>
+
+       <div class="input-container">
+          <textarea 
+          class="input-overview" 
+          type="text" 
+          name="overview"
+          value="The planets in our solar system are shown from top to bottom: Mercury, Venus, Earth (and our moon), Mars, Jupiter, Saturn, Uranus, and Neptune"
+          placeholder="Enter Moon overview"
+          formControlName="overview"
+          >
+        </textarea>
+
+        <ng-container *ngIf="form.get('overview')?.touched">
+          <p
+            class="error"
+            *ngIf="form.get('overview')?.errors?.['required']"
+          >
+            Overview is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="form.get('overview')?.errors?.['minlength']"
+          >
+            Overview must be least than
+            {{
+              form.get('overview')?.errors?.['minlength']?.['requiredLength']
+            }}
+            characters!
+          </p>
+          <p
+            class="error"
+            *ngIf="form.get('overview')?.errors?.['maxlength']"
+          >
+            Overview must be less than
+            {{
+              form.get('overview')?.errors?.['maxlength']?.['requiredLength']
+            }}
+            characters!
+          </p>
+        </ng-container>
+       </div>
+         <button [disabled]="form.invalid" type="submit" class="submit">
            <span class="sign-text">Edit</span>
          </button>
       </form>
