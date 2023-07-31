@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { DEFAULT_EMAIL_DOMAINS } from "src/app/shared/constants";
@@ -19,7 +19,7 @@ export class EditProfileComponent {
     
   });
   constructor(private fb: FormBuilder,  private router: Router) {}
-
+  
   editProfile(): void {
     if (this.form.invalid) {
       return;

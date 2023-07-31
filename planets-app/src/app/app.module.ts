@@ -16,6 +16,8 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { appInterceptorProvider } from './app.interceptor';
     MainComponent,
     MoonListComponent,
     PlanetListComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,

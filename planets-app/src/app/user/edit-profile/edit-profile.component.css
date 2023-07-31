@@ -64,7 +64,7 @@ body {
   }
   .input-username:hover,
   .input-mail:hover{
-    background-color: rgba(0, 135, 169, 0.041); /* Change the background color on hover to match your design */
+    background-color: rgba(0, 135, 169, 0.041); 
     border: #fff;
     border-style: solid;
     transition: all 0.1s ease 0s;
@@ -93,7 +93,7 @@ body {
   }
   
   .submit:hover {
-    background-color: rgba(0, 135, 169, 0.041); /* Change the background color on hover to match your design */
+    background-color: rgba(0, 135, 169, 0.041); 
     border: #fff;
     border-style: solid;
     transition: all 0.1s ease 0s;

@@ -50,6 +50,12 @@ export class UserService implements OnDestroy{
     .pipe(tap((user) => this.user$$.next(user)))
   }
 
+  updateUser(username:string, email:string){
+    return this.http
+    .put<UserId>('/api/users/profile/edit', {username, email})
+    .pipe(tap((user) => this.user$$.next(user)))
+  }
+
   logout(){
     return this.http
     .post<UserId>('/api/users/logout', {})
