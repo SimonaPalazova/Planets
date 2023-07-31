@@ -17,7 +17,8 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   exports:[
     EmailDirective,
-    ImageDirective
+    ImageDirective,
+    LoaderComponent
   ]
 })
 export class SharedModule { }
