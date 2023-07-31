@@ -1,3 +1,7 @@
+# BackEnd
+
+The application uses a backend that is Node.js with mongoDB
+
 # PlanetsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
