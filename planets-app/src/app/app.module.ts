@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     PlanetListComponent,
     EditProfileComponent,
     AuthenticateComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
