@@ -8,24 +8,25 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
-    path: 'users/login',
+    path: 'login',
     component: LoginComponent,
   },
   {
-    path: 'users/register',
+    path: 'register',
     component: RegisterComponent,
   },
   {
-    path: 'users/profile',
+    path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthActivate]
   },
   {
-    path: 'users/profile/edit',
+    path: 'profile/edit',
     component: EditProfileComponent,
     canActivate: [AuthActivate]
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
