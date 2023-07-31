@@ -4,19 +4,18 @@
     font-family: "Montserrat", sans-serif;
     position: fixed;
     z-index: 10;
-    right: 8%;
-    top: 8%;
+    right: 15%;
+    top: 15%;
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: rgb(255, 255, 255);
-    font-style: italic;
-    text-decoration: underline;
-    box-shadow: 0 5px 10px rgb(204, 204, 204);
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgb(63, 61, 61);
     background-color: rgba(27, 12, 228, 0.699);
    }
   
    .error-message {
-    background-color:  rgba(27, 12, 228, 0.699);
+    background-color:  rgba(103, 182, 255, 0.699);
    }
    
    
