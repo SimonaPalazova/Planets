@@ -34,7 +34,7 @@ exports.createPlanet = async (req, res, next) => {
     const { name, image, planetType, overview } = req.body;
     const userId = req.user._id;
     try {
-        const createdPlanet = await Planet.create({ name, image, planetType, overview, subscribers: [userId] })
+        const createdPlanet = await Planet.create({ name, image, planetType, overview, owner: userId})
         res.status(201).json({ message: "Created!", createdPlanet})
     } catch (err) {
         console.log(err);
@@ -97,16 +97,3 @@ exports.getPlanetsByOwner = async(req, res,next) => {
 }
 
 
-exports.subscribe = async (req, res, next) => {
-    const planetId = req.params.planetId;
-    const userId = req.user._id;
-    try {
-       const subscribe = await Planet.findByIdAndUpdate({ _id: planetId }, { $addToSet: { subscribers: userId } }, { new: true })
-        res.status(200).json(subscribe)
-            
-    } catch (err) {
-        console.log(err);
-        next();
-    }
-
-}

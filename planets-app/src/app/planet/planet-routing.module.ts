@@ -9,7 +9,7 @@ import { EditPlanetComponent } from './edit-planet/edit-planet.component';
 
 const routes: Routes = [
   {
-    path: ' ',
+    path: 'planets',
     children:[
       {
         path: '',

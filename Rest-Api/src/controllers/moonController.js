@@ -98,18 +98,3 @@ exports.getMoonsByOwner = async(req, res,next) => {
     }
 }
 
-exports.like = async(req, res, next) => {
-    const moondId = req.params.moondId
-    const userId = req.user._id;
-
-    console.log('like')
-    try{
-        const liked = await Moon.updateOne({ _id: moondId }, { $addToSet: { likes: userId } }, { new: true })
-        res.status(200).json({ message: 'Liked successful!' })
-        res.json(liked);
-    }catch (err) {
-        console.log(err);
-        next();
-    }
-    
-}
