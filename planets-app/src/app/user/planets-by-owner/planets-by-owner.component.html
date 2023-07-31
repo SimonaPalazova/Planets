@@ -1,6 +1,6 @@
 <div *ngIf="!thereAreNoPlanets">
 <div class="planets" *ngFor="let planet of planetsList">
-    <a routerLink="/planets/{{planet._id}}">
+    <a>
         <img src="{{planet.image}}"
         alt="{{planet.name}}">
     </a>

@@ -9,12 +9,12 @@
         <div class="moons" *ngIf="!thereAreNoMoons">
             <div class="moon" *ngFor="let moon of moonsList">
                 <div class="image">
-                    <a routerLink="/moons/moonId">
+                    <a>
                         <img src="{{moon.image}}" 
                     alt="img">
                     </a>
                     <div class="moons-name">
-                        <a [routerLink]="moon._id">
+                        <a routerLink="moons/{{moon._id}}/edit">
                             <h4>{{moon.name}}</h4>
                         </a>
                     </div>
@@ -24,7 +24,7 @@
         </div>
 
         <article class="not-available-photo" *ngIf="thereAreNoMoons">
-            
+             
                 <h3>No uploaded Moons yet!</h3>
                 <a routerLink="/create/moon">Create Moons</a>
             
