@@ -19,7 +19,14 @@ export class HeaderComponent {
   }  
 
   logout():void{
-    this.userServies.logout();
-    this.router.navigate(['/'])
+    this.userServies.logout().subscribe({
+     next: () =>{
+      this.router.navigate(['/'])
+     },
+     error: () => {
+      this.router.navigate(['/'])
+     }
+     
+    });
   }
 }

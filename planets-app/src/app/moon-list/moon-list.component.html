@@ -6,7 +6,7 @@
     <div class="dynamic-data">
 
    
-        <div class="moons" *ngIf="thereAreNoMoons">
+        <div class="moons" *ngIf="!thereAreNoMoons">
             <div class="moon" *ngFor="let moon of moonsList">
                 <div class="image">
                     <a routerLink="/moons/moonId">
@@ -23,7 +23,7 @@
             
         </div>
 
-        <article class="not-available-photo" *ngIf="!thereAreNoMoons">
+        <article class="not-available-photo" *ngIf="thereAreNoMoons">
             
                 <h3>No uploaded Moons yet!</h3>
                 <a routerLink="/create/moon">Create Moons</a>

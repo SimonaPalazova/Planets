@@ -1,63 +1,63 @@
 <body>
-    <div class="container">
+  <div class="container">
+      
+  <form class="form" #form="ngForm" (ngSubmit)="login(form)">
+      <div class="form-title"><span>Login to your</span></div>
+       <div class="title-2"><span>SPACE</span></div>
+       <div class="input-container">
+         <input 
+         class="input-mail" 
+         type="text" 
+         placeholder="Enter email"
+         name="email"
+         ngModel
+         #inputEmail="ngModel"
+         required
+         [appEmail]="appEmailDomains">
+         <span> </span>
+       </div>
+
+       <ng-container *ngIf="inputEmail.touched">
+        <p class="error" *ngIf="inputEmail.errors?.['required']">
+          Email is required!
+        </p>
+        <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
+          Email is not valid!
+        </p>
+
+      </ng-container>
+       <div class="input-container">
+         <input 
+         class="input-pwd" 
+         type="password" 
+         placeholder="Enter password"
+         name="password"
+         #inputPassword="ngModel"
+         ngModel 
+         required
+         minlength="5">
+       </div>
+
+       <ng-container *ngIf="inputPassword.touched">
+        <p class="error" *ngIf="inputPassword.errors?.['required']">
+          Password is required!
+        </p>
+        <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+          Password must be at least  {{inputPassword.errors?.['minlength']['requiredLength']}} characters!
+        </p>
+      </ng-container>
+
+
+       <button [disabled]="form.invalid" type="submit" class="submit">
+         <span class="sign-text">Login</span>
+       </button>
+ 
+       <p class="signup-link">
+         No account?
+         <a routerLink="/users/register" class="up">Register</a>
+       </p>
         
-    <form class="form" #form="ngForm" (ngSubmit)="login(form)">
-        <div class="form-title"><span>Login to your</span></div>
-         <div class="title-2"><span>SPACE</span></div>
-         <div class="input-container">
-           <input 
-           class="input-mail" 
-           type="email" 
-           placeholder="Enter email"
-           name="email"
-           ngModel
-           #inputEmail="ngModel"
-           required
-           [appEmail]="appEmailDomains">
-           <span> </span>
-         </div>
-
-         <ng-container *ngIf="inputEmail.touched">
-          <p class="error" *ngIf="inputEmail.errors?.['required']">
-            Email is required!
-          </p>
-          <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
-            Email is not valid!
-          </p>
-
-        </ng-container>
-         <div class="input-container">
-           <input 
-           class="input-pwd" 
-           type="password" 
-           placeholder="Enter password"
-           name="password"
-           #inputPassword="ngModel"
-           ngModel 
-           required
-           minlength="5">
-         </div>
-
-         <ng-container *ngIf="inputPassword.touched">
-          <p class="error" *ngIf="inputPassword.errors?.['required']">
-            Password is required!
-          </p>
-          <p class="error" *ngIf="inputPassword.errors?.['minlength']">
-            Password must be at least  {{inputPassword.errors?.['minlength']['requiredLength']}} characters!
-          </p>
-        </ng-container>
-
-
-         <button [disabled]="form.invalid" type="submit" class="submit">
-           <span class="sign-text">Login</span>
-         </button>
-   
-         <p class="signup-link">
-           No account?
-           <a routerLink="/users/register" class="up">Register</a>
-         </p>
-          
-      </form>
-   
-    </div>
+    </form>
+ 
+  </div>
 </body>

@@ -6,7 +6,7 @@
     <div class="dynamic-data">
 
    
-        <div class="planets" *ngIf="thereAreNoPlanets">
+        <div class="planets" *ngIf="!thereAreNoPlanets">
             <div class="palnet" *ngFor="let planet of planetsList">
                 <div class="image">
                     <a routerLink="/planets/:planetId">
@@ -23,7 +23,7 @@
             
         </div>
 
-        <article class="not-available-photo" *ngIf="!thereAreNoPlanets">
+        <article class="not-available-photo" *ngIf="thereAreNoPlanets">
             
                 <h3>No uploaded Planet yet!</h3>
                 <a routerLink="/create/planet">Create Planet</a>

@@ -8,7 +8,7 @@ router.post('/login',login);
 router.post('/logout', auth ,logout);
 
 
-router.get('/:id/profile', auth, getProfileInfo);
-router.post('/:id/profile/edit', auth, editProfileInfo);
+router.get('/profile', auth, getProfileInfo);
+router.put('/profile/edit', auth, editProfileInfo);
 
 module.exports = router;

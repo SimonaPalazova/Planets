@@ -12,10 +12,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   
-  getUrser(id: string){
-    const { apiUrl } = environment;
-    return this.http.get<UserId>(`${apiUrl}/users/${id}/profile`);
-  }
 
   getPlanets(){
     const { apiUrl } = environment;
