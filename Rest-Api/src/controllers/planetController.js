@@ -31,12 +31,11 @@ exports.getPlanet = async (req, res, next) => {
 }
 
 exports.createPlanet = async (req, res, next) => {
-    const { name, image, PlanetType, overview } = req.body;
+    const { name, image, planetType, overview } = req.body;
     const userId = req.user._id;
     try {
-        const createdPlanet = await Planet.create({ name, image, PlanetType, overview, subscribers: [userId] })
-        res.status(201).json({ message: "Created!" })
-        res.json(createdPlanet);
+        const createdPlanet = await Planet.create({ name, image, planetType, overview, subscribers: [userId] })
+        res.status(201).json({ message: "Created!", createdPlanet})
     } catch (err) {
         console.log(err);
         next();

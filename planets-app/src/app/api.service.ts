@@ -13,6 +13,15 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   
 
+  createPlanet(
+    name: string,
+    image: string,
+    planetType: string,
+    overview: string
+  ){
+    return this.http.post('/api/create/planet', { name, image, planetType, overview})
+  }
+
   getPlanets(){
     const { apiUrl } = environment;
     return this.http.get<PlanetId[]>(`${apiUrl}/planets`)

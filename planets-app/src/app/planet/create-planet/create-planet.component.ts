@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 import { appImageValidator } from 'src/app/shared/validators/image-validator';
 
 @Component({
@@ -27,14 +28,19 @@ export class CreatePlanetComponent {
       ],
   ]
   })
-  constructor(private fb: FormBuilder,  private router: Router) {}
+  constructor(private fb: FormBuilder,  
+    private router: Router,
+    private apiService: ApiService) {}
 
   createPlanet():void{
     if(this.form.invalid){
       return;
     }
-    console.log(this.form.value);
-    this.router.navigate(['/planets'])
+    const { name, image, planetType, overview } = this.form.value;
+    this.apiService.createPlanet( name!, image!, planetType!, overview!).subscribe(() => {
+      this.router.navigate(['/planets']);
+    })
+    
     
   }
 }
