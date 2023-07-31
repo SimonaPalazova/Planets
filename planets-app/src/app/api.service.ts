@@ -37,6 +37,13 @@ export class ApiService {
     return this.http.get<PlanetId[]>(`${apiUrl}/planets/${id}/planets`)
   }
 
+  createMoon(
+    name: string,
+    image: string,
+    overview: string
+  ){
+    return this.http.post('/api/create/moon', { name, image, overview})
+  }
   getMoons(){
     const { apiUrl } = environment;
     return this.http.get<MoonId[]>(`${apiUrl}/moons`)

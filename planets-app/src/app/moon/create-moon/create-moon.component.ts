@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 import { appImageValidator } from 'src/app/shared/validators/image-validator';
 
 @Component({
@@ -25,15 +26,18 @@ form = this.fb.group({
       ],
   ]
   })
-  constructor(private fb: FormBuilder,  private router: Router) {}
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private apiService: ApiService) {}
 
   createMoon():void{
     if(this.form.invalid){
       return;
     }
-    console.log(this.form.value);
-    this.router.navigate(['/moons'])
-    
+    const { name, image, overview } = this.form.value;
+    this.apiService.createMoon( name!, image!, overview!).subscribe(() => {
+      this.router.navigate(['/moons']);
+    })
   }
 
 }
