@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { UserId } from '../types/user-id';
 import { MoonId } from '../types/moon';
+import { PlanetId } from '../types/planet';
 
 
 @Injectable({
@@ -20,6 +21,8 @@ export class UserService implements OnDestroy{
   get isLogged():boolean{
     return !!this.user
   }
+  planetsData: boolean = true;
+  moonsData: boolean = true;
 
   subscription: Subscription; 
 
@@ -66,6 +69,10 @@ export class UserService implements OnDestroy{
   getMoonsByUser(){
     const id = this.user!._id
     return this.http.get<MoonId[]>(`/api/moons/${id}/moons`)
+  }
+  getPlanetsByUser(){
+    const id = this.user!._id
+    return this.http.get<PlanetId[]>(`/api/planets/${id}/planets`)
   }
 
   ngOnDestroy(): void {

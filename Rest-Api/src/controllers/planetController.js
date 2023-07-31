@@ -87,7 +87,7 @@ exports.getPlanetsByOwner = async(req, res,next) => {
     const userId = req.user._id;
     
     try{
-        const planets = await Moon.find({owner: userId})
+        const planets = await Planet.find({owner: userId})
         res.json(planets)
 
     }catch (err) {

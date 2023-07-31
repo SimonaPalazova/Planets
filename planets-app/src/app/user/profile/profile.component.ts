@@ -15,6 +15,8 @@ interface Profile{
 
 
 export class ProfileComponent {
+  validData:boolean =true;
+
   user: Profile = {
     _id: this.userService.user?._id,
     username: this.userService.user?._id,
@@ -31,5 +33,8 @@ export class ProfileComponent {
     .subscribe((user) =>{
       this.user = user;
     })
+    if(this.userService.planetsData === false && this.userService.moonsData === false){
+      this.validData = false;
+    }
   }
 }

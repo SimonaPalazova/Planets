@@ -9,7 +9,7 @@
         <div class="planets" *ngIf="!thereAreNoPlanets">
             <div class="palnet" *ngFor="let planet of planetsList">
                 <div class="image">
-                    <a routerLink="/planets/:planetId">
+                    <a [routerLink]="planet._id">
                         <img src="{{planet.image}}" 
                     alt="img">
                     </a>

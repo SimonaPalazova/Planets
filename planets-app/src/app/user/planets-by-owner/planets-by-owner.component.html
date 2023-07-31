@@ -1,7 +1,10 @@
-<div class="planets">
-    <a href="#">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnRDMXzG1ouG1xzCJwQ6z81BmitW9cqSPE5QI3PqRjZdWlZeMQij1KW2Dql34vnyEaa2Y&usqp=CAU"
-        alt="Jupiter">
+<div *ngIf="!thereAreNoPlanets">
+<div class="planets" *ngFor="let planet of planetsList">
+    <a routerLink="/planets/{{planet._id}}">
+        <img src="{{planet.image}}"
+        alt="{{planet.name}}">
     </a>
-    <p>Jupiter</p>
 </div>
+
+</div>
+

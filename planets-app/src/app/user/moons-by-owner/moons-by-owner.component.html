@@ -1,6 +1,9 @@
-<div class="moons" *ngFor="let moon of moonsList">
-    <a href="#">
+<div *ngIf="!thereAreNoMoons">
+    <div class="moons" *ngFor="let moon of moonsList">
+    <a routerLink="/moons/{{moon._id}}">
         <img src="{{moon.image}}"
         alt="{{moon.name}}">
     </a>
 </div> 
+</div>
+

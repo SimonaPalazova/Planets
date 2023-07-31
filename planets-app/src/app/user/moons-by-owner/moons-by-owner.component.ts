@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class MoonsByOwnerComponent implements OnInit{
   moonsList: any
-  thereAreNoPlanets: boolean = false;
+  thereAreNoMoons: boolean = false;
 
   constructor(
     private userService: UserService
@@ -22,7 +22,8 @@ export class MoonsByOwnerComponent implements OnInit{
         this.moonsList = moons;
 
         if(this.moonsList.length === 0){
-          this.thereAreNoPlanets = true;
+          this.thereAreNoMoons = true;
+          this.userService.moonsData = false
         }
       },
       error: (err) => {

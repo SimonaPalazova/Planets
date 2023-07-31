@@ -20,8 +20,8 @@
     <div class="dynamic-data">
         <app-planets-by-owner />
         <app-moons-by-owner />
-        <!--If there are no photo yet!-->
-        <article class="not-available-photo">
+        
+        <article *ngIf="!validData" class="not-available-photo">
             <h1>You haven't uploaded yet…</h1>
             <a routerLink="/create/planet">Create Planet</a>
             <a routerLink="/create/moon">Create Moon</a>
