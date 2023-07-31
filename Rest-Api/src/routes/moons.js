@@ -9,7 +9,7 @@ router.get('/', getMoons);
 
 router.get('/:userId/moons', auth,getMoonsByOwner)
 router.get('/:moonId', getMoon);
-router.put('/:moonId/edit', auth, editMoon);
+router.post('/:moonId/edit', auth, editMoon);
 router.delete('/:moonId/delete', auth, deleteMoon);
 
 

@@ -3,6 +3,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { UserId } from '../types/user-id';
+import { MoonId } from '../types/moon';
 
 
 @Injectable({
@@ -52,7 +53,7 @@ export class UserService implements OnDestroy{
 
   updateUser(username:string, email:string){
     return this.http
-    .put<UserId>('/api/users/profile/edit', {username, email})
+    .post<UserId>('/api/users/profile/edit', {username, email})
     .pipe(tap((user) => this.user$$.next(user)))
   }
 
@@ -60,6 +61,11 @@ export class UserService implements OnDestroy{
     return this.http
     .post<UserId>('/api/users/logout', {})
     .pipe(tap(() => this.user$$.next(undefined)));
+  }
+
+  getMoonsByUser(){
+    const id = this.user!._id
+    return this.http.get<MoonId[]>(`/api/moons/${id}/moons`)
   }
 
   ngOnDestroy(): void {

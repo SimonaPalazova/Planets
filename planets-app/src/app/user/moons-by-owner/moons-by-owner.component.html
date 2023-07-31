@@ -1,6 +1,6 @@
-<div class="moons">
+<div class="moons" *ngFor="let moon of moonsList">
     <a href="#">
-        <img src="https://solarsystem.nasa.gov/system/stellar_items/image_files/1167_feature_1600x900_hpx.jpg"
-        alt="Lune">
-    </a>  
+        <img src="{{moon.image}}"
+        alt="{{moon.name}}">
+    </a>
 </div> 

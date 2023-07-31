@@ -85,7 +85,7 @@ exports.editProfileInfo = async(req, res, next) => {
     const { _id: userId } = req.user;
     const { username, email } = req.body;
     try{
-         const editedProfile = await User.findOneAndUpdate( { _id: userId }, { username, email },  { runValidators: true, new: true })
+         const editedProfile = await User.findOneAndUpdate({ _id: userId }, { username, email })
          res.status(200).json(editedProfile)
     }catch(err){
         console.log(err);
