@@ -30,8 +30,10 @@ export class AppInterceptor implements HttpInterceptor{
                 
                 if(err.status === 401){
                     this.router.navigate(['/login'])
+                }else if(err.message === 'Http failure response for http://localhost:3000/api/users/profile: 0 Unknown Error'){
+                    this.router.navigate(['/'])
                 }else{
-                 this.errorService.setError(err);
+                 this.errorService.setError(err.message);
                  this.router.navigate(['/error'])
                 }
                 
