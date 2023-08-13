@@ -13,7 +13,8 @@ const routes: Routes = [
       {
         path: '',
         pathMatch:'full',
-        component:PlanetListComponent
+        component:PlanetListComponent,
+        canActivate: [AuthActivate]
       },
       {
         path: ':planeid/edit',

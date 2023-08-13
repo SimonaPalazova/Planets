@@ -13,7 +13,9 @@ const routes: Routes = [
       {
         path: '',
         pathMatch:'full',
-        component: MoonListComponent
+        component: MoonListComponent,
+        canActivate: [AuthActivate]
+
       },
     ]
    
